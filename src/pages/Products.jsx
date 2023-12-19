@@ -24,35 +24,31 @@ function Products() {
             categories?.map(category => <option key={category._id}>{category?.categoryName}</option>)
         }
     </select>
-    {/* <select
-            onChange={selectedCategory}
-            className="select select-info w-full max-w-xs"
-          >
-            {categories.map((category) => (
-              <option key={category._id}>{category.categoryName}</option>
-            ))}
-          </select> */}
+  
 </div>
 
+<div className="flex flex-wrap gap-3 justify-center">
+    {
+        loading && <Loader />
+    }
+</div>
 
 <div className='flex flex-wrap gap-3 justify-center mt-5'>
 
     {
-        loading && <Loader />
-    }
-
-
-    {
-        items?.map(item => <Card key={item._id} element={item} />)
+        items.length !== 0?
+        (
+          items?.map(item => <Card key={item._id} element={item} />)
+        ):
+        ("data not Found")
     }
 </div>
 <div>
     <div className='my-4'>
         <div className='flex justify-between'>
-            {/* <button  className='btn btn-primary'>Previous</button>
-            <button className='btn btn-secondary' >Next</button> */}
+           
             <button onClick={prevPage} disabled={page == 1} className='btn btn-primary'>Previous</button>
-                        <button onClick={nextPage} disabled={items.length >5}className='btn btn-secondary' >Next</button>
+                        <button onClick={nextPage} disabled={items.length < 3}className='btn btn-secondary' >Next</button>
         </div>
 
     </div>

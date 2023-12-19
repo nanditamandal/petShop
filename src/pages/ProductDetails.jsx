@@ -8,12 +8,6 @@ function ProductDetails() {
 
   const {id} =useParams();
   const {addToCart} =useContext(MyContext);
-  // const {handelCard} =useContext(MyContext);
-
-
-
-  //   // console.log(productDetails);
-  //   const {title, description, images, thumbnail}=productDetails;
 
     
     const [productDetails, setProductDetails]= useState({});
@@ -28,8 +22,6 @@ function ProductDetails() {
       specificMovieDetails(id)
     },[id])
 
-
-        // console.log(productDetails.description[0]?.children[0]?.text)
         
   return (
     <>
@@ -48,6 +40,9 @@ function ProductDetails() {
         
         
         }
+        </p>
+        <p>
+            <span>Price: </span>{productDetails.price}<span> tk</span>
         </p>
 
         <div className="card-actions justify-end">
